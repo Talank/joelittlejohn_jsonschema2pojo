@@ -1,10 +1,7 @@
----
 name: CI
 
 on:
   push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
@@ -12,11 +9,16 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         java_version: [17]
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
       max-parallel: 4
+      fail-fast: false
     name: Test JDK ${{ matrix.java_version }}
     steps:
       - name: Setup Maven Action
