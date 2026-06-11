@@ -1,12 +1,6 @@
 name: Android Sample
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
@@ -16,7 +10,8 @@ jobs:
     strategy:
       matrix:
         version:
-          - { java: 17,  gradle: '8.14.4' }
+          - {java: 17, gradle: '8.14.4'}
+      fail-fast: false
     steps:
       - name: Setup Maven Action
         uses: s4u/setup-maven-action@v1.19.0

@@ -1,13 +1,6 @@
----
 name: CI
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
@@ -17,6 +10,7 @@ jobs:
       matrix:
         java_version: [17]
       max-parallel: 4
+      fail-fast: false
     name: Test JDK ${{ matrix.java_version }}
     steps:
       - name: Setup Maven Action
