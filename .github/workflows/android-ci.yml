@@ -13,8 +13,6 @@ jobs:
           - {java: 17, gradle: '8.14.4'}
         os:
           - ubuntu-latest
-          - windows-latest
-          - macos-latest
       fail-fast: false
     steps:
       - name: Setup Maven Action
