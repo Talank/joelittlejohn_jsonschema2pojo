@@ -24,8 +24,8 @@ jobs:
           java-version: ${{ matrix.java_version }}
           java-distribution: temurin
       - name: Verify with Maven
-        run: ./mvnw verify -B
+        run: mvn verify -B
       - name: Verify jsonschema2pojo-gradle-plugin integration tests
         run: |
-          ./mvnw -U -B install -DskipTests -Dmaven.javadoc.skip -Dmaven.site.skip -pl jsonschema2pojo-gradle-plugin -am
-          ./mvnw -U -B install -pl jsonschema2pojo-gradle-plugin
+          mvn -U -B install -DskipTests -Dmaven.javadoc.skip -Dmaven.site.skip -pl jsonschema2pojo-gradle-plugin -am
+          mvn -U -B install -pl jsonschema2pojo-gradle-plugin
